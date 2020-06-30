@@ -27,12 +27,13 @@ test {
 repositories {
     mavenCentral()
     mavenLocal()
-    maven {url 'https://oss.sonatype.org/content/repositories/snapshots/'}
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
 
 dependencies {
     annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
     implementation "org.seasar.doma:doma-core:${domaVersion}"
+//    implementation "org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16"
     runtimeOnly 'com.h2database:h2:1.4.200'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.1'
@@ -51,7 +52,7 @@ eclipse {
             withXml { provider ->
                 def node = provider.asNode()
                 // specify output path for .apt_generated
-                node.appendNode( 'classpathentry', [ kind: 'src', output: 'bin/main', path: '.apt_generated'])
+                node.appendNode('classpathentry', [kind: 'src', output: 'bin/main', path: '.apt_generated'])
             }
         }
     }
